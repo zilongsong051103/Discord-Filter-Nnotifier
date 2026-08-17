@@ -60,10 +60,13 @@ python live_filter.py
 python fake_notifier.py
 ```
 
-> **Note on the Windows test tool:** `fake_notifier.py` posts a toast under the
-> AppUserModelID `"Discord"`, which is not a registered app, so on Windows 11 the
-> toast may not actually appear in Action Center. The most reliable test is to
-> trigger a real Discord notification containing one of your keywords.
+> **Note on the Windows test tool:** Windows refuses to display a toast posted
+> under an unregistered AppUserModelID (it raises "Element not found"). So
+> `fake_notifier.py` first registers a lightweight AUMID named `Discord` under
+> `HKCU\Software\Classes\AppUserModelId\Discord` (per-user, no admin needed) so
+> the test toast actually appears and is attributed to "Discord". Remove it any
+> time by deleting that registry key. This does not affect the real Discord app,
+> which uses a different AUMID.
 
 ---
 
