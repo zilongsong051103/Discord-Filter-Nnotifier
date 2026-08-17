@@ -1,1 +1,11 @@
-winsdk==1.0.0b10
+# Windows Runtime (PyWinRT) — the maintained successor to the old `winsdk` package.
+# Ships prebuilt wheels for CPython 3.9–3.14, so installing needs NO Visual Studio
+# / C++ build tools (that was the winsdk build failure).
+#
+# The [all] extra is important: it pulls in the dependent WinRT namespaces
+# (Windows.Foundation, Windows.ApplicationModel, Windows.Data.Xml.Dom, ...) that
+# these modules import at load time. Without it pip installs only winrt-runtime
+# and the imports below fail with ModuleNotFoundError.
+winrt-Windows.UI.Notifications.Management[all]==3.2.1
+winrt-Windows.UI.Notifications[all]==3.2.1
+winrt-Windows.Data.Xml.Dom[all]==3.2.1

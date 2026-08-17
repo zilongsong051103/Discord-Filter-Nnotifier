@@ -1,7 +1,10 @@
 import asyncio
 import winsound
-from winsdk.windows.ui.notifications.management import UserNotificationListener
-from winsdk.windows.ui.notifications import NotificationKinds
+from winrt.windows.ui.notifications.management import (
+    UserNotificationListener,
+    UserNotificationListenerAccessStatus,
+)
+from winrt.windows.ui.notifications import NotificationKinds
 
 # Configuration: Add the explicit display names or text phrases you want to monitor
 WATCHED_KEYWORDS = ["Alex", "JohnDoe", "Mod_Sarah"]
@@ -15,7 +18,7 @@ async def listen_to_windows_notifications():
     
     # Verify local user execution clearance policies
     access_status = await listener.request_access_async()
-    if access_status != 1:  # Status code 1 indicates system validation 'Allowed'
+    if access_status != UserNotificationListenerAccessStatus.ALLOWED:
         print("[CRITICAL] Access Denied. Turn on Notification Access in Windows Settings.")
         return
 

@@ -1,7 +1,7 @@
 import sys
 import asyncio
-from winsdk.windows.ui.notifications import ToastNotificationManager, ToastNotification
-from winsdk.windows.data.xml.dom import XmlDocument
+from winrt.windows.ui.notifications import ToastNotificationManager, ToastNotification
+from winrt.windows.data.xml.dom import XmlDocument
 
 async def send_fake_discord_toast(sender_name, message_text):
     # Standard Windows XML layout blueprint for custom Toast notifications

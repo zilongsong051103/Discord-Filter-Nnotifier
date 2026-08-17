@@ -1,0 +1,11 @@
+# Linux/Ubuntu version — talks to the desktop notification system over D-Bus.
+#
+# jeepney is a pure-Python D-Bus client with ZERO other dependencies, so it
+# installs cleanly with just `pip install -r requirements.txt` (no system
+# libdbus / PyGObject / compilers needed). It ships wheels for all modern
+# CPython versions.
+#
+# Note: this is the only third-party requirement. The desktop notification
+# daemon it talks to (GNOME Shell, KDE Plasma, XFCE's xfce4-notifyd, dunst,
+# mako, ...) is provided by your Linux desktop, not by pip.
+jeepney>=0.8

@@ -1,0 +1,8 @@
+# Python
+__pycache__/
+*.py[cod]
+
+# Virtual environments (created per-folder: windows/.venv, ubuntu/.venv)
+.venv/
+venv/
+env/
